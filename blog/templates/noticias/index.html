@@ -1,0 +1,20 @@
+<!-- extiende la configuracion y maquetacion de la pagina base-->
+{% extends 'base.html' %}
+
+<!--
+	para la informacion que va a ser mostrada en el bloque
+	informacion de la pagina base.html
+-->
+ {% block informacion %}
+	{% for new in news %}
+		<div class="p-1">
+			<h2>{{ new.titulo }}</h2>
+			<hr>
+			<p>{{ new.descripcion }}</p>
+			<a href="{% url 'blog:ver_noticia' new.id %}">
+				<button class="btn btn-primary">ver paps</button>
+			</a>
+
+		</div>
+	{% endfor %}
+{% endblock %}
